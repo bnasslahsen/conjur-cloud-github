@@ -11,5 +11,5 @@ if [[ $http_code -ne 200 ]]; then
   echo "Github Authentication failed $response"
   exit 1
 else
-  echo "Github Authentication successful! "
+  echo "Github Authentication successful!"
 fi
