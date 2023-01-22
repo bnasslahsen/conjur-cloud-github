@@ -16,7 +16,5 @@ conjur authenticator enable --id authn-jwt/$CONJUR_AUTHENTICATOR_ID
 conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/token-app-property -v "$GITHUB_TOKEN_APP"
 conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/identity-path -v "$GITHUB_IDENTITY"
 conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/issuer -v "$GITHUB_ISSUER"
-curl -k $GITHUB_JWKS >  jwks.json
-conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/public-keys -v "{\"type\":\"jwks\", \"value\":$(cat jwks.json)}"
-#conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/audience -v "conjur"
-rm jwks.json
+conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/jwks-uri -v "$GITHUB_JWKS_URI"
+conjur variable set -i conjur/authn-jwt/$CONJUR_AUTHENTICATOR_ID/enforced-claims -v "$GITHUB_CLAIMS"
