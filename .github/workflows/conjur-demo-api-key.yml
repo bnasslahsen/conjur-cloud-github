@@ -1,4 +1,4 @@
-name: Test get secrets from conjur
+name: Test get secrets from conjur with API KEY
 on:
   push:
     branches: [ "master" ]
