@@ -8,8 +8,8 @@
       - !host
         id: github-demo-host
         annotations:
-          authn-jwt/github1/repository: bnasslahsen/conjur-cloud-github
-          authn-jwt/github1/workflow: github-demo-host
+          authn-jwt/$CONJUR_AUTHENTICATOR_ID/repository: bnasslahsen/conjur-cloud-github
+          authn-jwt/$CONJUR_AUTHENTICATOR_ID/workflow: github-demo-host
           authn/api-key: true
     - !grant
       role: !group
