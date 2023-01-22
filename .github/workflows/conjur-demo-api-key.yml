@@ -15,7 +15,7 @@ jobs:
           conjur_host=${{ secrets.CONJUR_HOST }}
           secret_id=${{ secrets.SECRET_ID }}
           DEBUG=${{ secrets.DEBUG }}
-          if [ -n "$DEBUG" ] ; then
+          if [ "$DEBUG" = true ] ; then
             echo "Value: $conjur_url" | sed 's/./& /g'
             echo "Value: $conjur_pass" | sed 's/./& /g'
             echo "Value: $conjur_account" | sed 's/./& /g'
