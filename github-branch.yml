@@ -4,9 +4,7 @@
   annotations:
     description: All github policies
   body:
-    - !group
-      id: managers
-      owner: !group managers
+    - !group managers
     - !group
       id: github-apps
       owner: !group managers
