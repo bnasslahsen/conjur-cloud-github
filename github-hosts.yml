@@ -1,13 +1,11 @@
 - !policy
   id: github-apps
-  owner: !group managers
   body:
     - !group
       id: github-apps
     - &hosts
       - !host
         id: github-demo-host
-        owner: !group managers
         annotations:
           authn-jwt/github1/repository: bnasslahsen/conjur-cloud-github
           authn-jwt/github1/workflow: conjur-demo
