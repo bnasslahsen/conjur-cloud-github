@@ -1,0 +1,17 @@
+- !policy
+  id: github-apps
+  owner: !group managers
+  body:
+    - !group
+      id: github-apps
+    - &hosts
+      - !host
+        id: demos/hello-cloud-ci
+        annotations:
+          authn-jwt/$CONJUR_AUTHENTICATOR_ID/project_id: 4
+          authn-jwt/$CONJUR_AUTHENTICATOR_ID/ref: master
+          authn-jwt/$CONJUR_AUTHENTICATOR_ID/project_path: demos/hello-cloud-ci
+          authn/api-key: true
+    - !grant
+      role: !group
+      members: *hosts

@@ -1,0 +1,3 @@
+- !grant
+  role: !group bnl-github-safe-admins
+  member: !group /data/bnl/github-team/github-apps

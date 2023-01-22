@@ -1,0 +1,3 @@
+- !grant
+  role: !group delegation/consumers
+  member: !group /data/bnl/github-team/github-apps

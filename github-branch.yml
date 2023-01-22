@@ -1,0 +1,17 @@
+# conjur policy update -f github-branch.yml -b data/bnl
+- !policy
+  id: github-team
+  annotations:
+    description: All github policies
+  body:
+    - !group managers
+    - !group
+      id: github-apps
+      owner: !group managers
+    - !grant
+      role: !group managers
+      member: !user /bnl-github-user@cyberark.cloud.3433
+    - !permit
+      role: !group managers
+      privileges: [ read,update,create ]
+      resource: !policy
