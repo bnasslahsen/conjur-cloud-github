@@ -1,9 +1,9 @@
 name: Test get secrets from conjur
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 jobs:
   get_secrets:
     runs-on: ubuntu-latest
