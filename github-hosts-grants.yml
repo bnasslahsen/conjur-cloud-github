@@ -1,3 +1,3 @@
 - !grant
-  role: !group delegation/consumers
+  role: !group bnl-github-safe/delegation/consumers
   member: !group /$GITHUB_IDENTITY

@@ -1,16 +1,10 @@
-- !policy
-  id: github-apps
-  owner: !group managers
-  body:
-    - &hosts
-      - !host
-        id: github-demo-host
-        annotations:
-          authn-jwt/$CONJUR_AUTHENTICATOR_ID/repository: bnasslahsen/conjur-cloud-github
-          authn-jwt/$CONJUR_AUTHENTICATOR_ID/workflow: github-demo-host
-          authn/api-key: true
-    - !grant
-      role: !group
-      members: *hosts
-
-
+- &hosts
+  - !host
+    id: github-demo-host
+    annotations:
+      authn-jwt/$CONJUR_AUTHENTICATOR_ID/repository: bnasslahsen/conjur-cloud-github
+      authn-jwt/$CONJUR_AUTHENTICATOR_ID/workflow: github-demo-host
+      authn/api-key: true
+- !grant
+  role: !group
+  members: *hosts

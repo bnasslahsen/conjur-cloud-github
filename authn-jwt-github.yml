@@ -17,7 +17,7 @@
     #Group of applications that can authenticate using this JWT Authenticator
     - !group apps
     - !permit
-        role: !group apps
+        role: !group /$GITHUB_IDENTITY
         privilege: [ read, authenticate ]
         resource: !webservice
     - !webservice

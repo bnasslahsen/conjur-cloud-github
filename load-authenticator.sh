@@ -4,10 +4,11 @@ set -a
 source ".env"
 set +a
 
+# Create Github Branch
+conjur policy update -b data -f <(envsubst < github-branch.yml)
+
 #Load Github root policy
-envsubst < authn-jwt-github.yml > authn-jwt-github.yml.tmp
-conjur policy update -f authn-jwt-github.yml.tmp -b conjur/authn-jwt
-rm authn-jwt-github.yml.tmp
+conjur policy update -b conjur/authn-jwt -f <(envsubst < authn-jwt-github.yml)
 
 #Enable the JWT Authenticator in Conjur Cloud
 conjur authenticator enable --id authn-jwt/$CONJUR_AUTHENTICATOR_ID
