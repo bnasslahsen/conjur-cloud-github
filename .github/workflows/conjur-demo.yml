@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
-        uses: cyberark/conjur-action@v2.0.2
+        uses: cyberark/conjur-action@v2.0.6
         with:
           url: ${{ secrets.CONJUR_URL }}
           account: ${{ secrets.CONJUR_ACCOUNT }}
           authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
           secrets: ${{ secrets.CONJUR_SECRETS }}
-          certificate: ${{ secrets.CONJUR_PUBLIC_KEY }}
       - name : Echo USERNAME
         run: echo $SECRET1 | sed 's/./& /g'
       - name : Echo PASSWORD
