@@ -15,10 +15,10 @@ jobs:
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: cyberark/conjur-action@v2.0.6
         with:
-          url: ${{ secrets.CONJUR_URL }}
-          account: ${{ secrets.CONJUR_ACCOUNT }}
-          authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
-          secrets: ${{ secrets.CONJUR_SECRETS }}
+          url: ${{ vars.CONJUR_URL }}
+          account: ${{ vars.CONJUR_ACCOUNT }}
+          authn_id: ${{ vars.CONJUR_AUTHN_ID }}
+          secrets: ${{ vars.CONJUR_SECRETS }}
       - name : Echo USERNAME
         run: echo $SECRET1 | sed 's/./& /g'
       - name : Echo PASSWORD
