@@ -23,3 +23,16 @@ jobs:
         run: echo $SECRET1 | sed 's/./& /g'
       - name : Echo PASSWORD
         run: echo $SECRET2 | sed 's/./& /g'
+
+      - name: Generate GitHub JWT
+        id: generate_jwt
+        run: |
+          echo "Requesting GitHub JWT..."
+          jwt=$(echo "${{ secrets.GITHUB_TOKEN }}" | \
+            curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://token.actions.githubusercontent.com")
+
+          echo "JWT Token:"
+          echo "$jwt"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
