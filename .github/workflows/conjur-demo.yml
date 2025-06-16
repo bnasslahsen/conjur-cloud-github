@@ -12,7 +12,7 @@ jobs:
   fetch-secret-from-conjur:
     runs-on: ubuntu-latest
     container:
-      image: cyberark/conjur-action@v2.0.10
+      image: 5b9a49:15507546563f4ecaaf9c39f8af93760c
     steps:
       - run: bash ls -rtla
       - name : Echo USERNAME
