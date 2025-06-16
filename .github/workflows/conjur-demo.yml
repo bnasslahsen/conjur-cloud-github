@@ -11,14 +11,10 @@ on:
 jobs:
   fetch-secret-from-conjur:
     runs-on: ubuntu-latest
+    container:
+      image: cyberark/conjur-action@v2.0.10
     steps:
-      - name: Import Secrets using CyberArk Conjur Secret Fetcher
-        uses: cyberark/conjur-action@v2.0.10
-        with:
-          url: ${{ vars.CONJUR_URL }}
-          account: ${{ vars.CONJUR_ACCOUNT }}
-          authn_id: ${{ vars.CONJUR_AUTHN_ID }}
-          secrets: ${{ vars.CONJUR_SECRETS }}
+      - run: bash ls -rtla
       - name : Echo USERNAME
         run: echo $SECRET1 | sed 's/./& /g'
       - name : Echo PASSWORD
