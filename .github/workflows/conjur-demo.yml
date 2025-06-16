@@ -1,7 +1,9 @@
 name: github-demo-host
+
 permissions:
-  id-token: write # This is required for requesting the JWT
-  contents: read  # This is required for checkout
+  id-token: write   # Required for requesting the JWT
+  contents: read    # Required for checkout
+
 on:
   push:
     branches: [ "master" ]
@@ -11,17 +13,14 @@ on:
 jobs:
   fetch-secret-from-conjur:
     runs-on: ubuntu-latest
+    container:
+      image: docker.io/bnasslahsen/github-action:latest
+
     steps:
-      - name: Import Secrets using CyberArk Conjur Secret Fetcher
-        uses: cyberark/conjur-action@v2.0.10
-        with:
-          url: ${{ vars.CONJUR_URL }}
-          account: ${{ vars.CONJUR_ACCOUNT }}
-          authn_id: ${{ vars.CONJUR_AUTHN_ID }}
-          secrets: ${{ vars.CONJUR_SECRETS }}
-      - name : Echo USERNAME
+      - name: Echo USERNAME
         run: echo $SECRET1 | sed 's/./& /g'
-      - name : Echo PASSWORD
+
+      - name: Echo PASSWORD
         run: echo $SECRET2 | sed 's/./& /g'
 
       - name: Debug JWT
