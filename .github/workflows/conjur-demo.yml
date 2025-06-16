@@ -1,7 +1,7 @@
 name: github-demo-host
 
 permissions:
-  id-token: write   # Required for requesting the JWT
+  id-token: write   # Required for requesting JWT
   contents: read    # Required for checkout
 
 on:
